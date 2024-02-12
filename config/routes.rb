@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+  get 'welcome/index'
+  post '/', to: 'welcome#index_post'
+
+  get 'contact/index'
+  get 'team/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
