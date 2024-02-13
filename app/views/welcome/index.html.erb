@@ -20,31 +20,35 @@
 
 
 
+<br/>
+<br/>
 
+<div class="d-flex justify-content-center">
+    <form action="/" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        Entre ton prénom :
+        <input type="text" name="first_name">
+        Entre ton nom de famille :
+        <input type="text" name="last_name">
+        <input type="submit" name="Envoyer">
+    </form>
+</div>
 
-<form action="/" method="post">
-    <input type="hidden" name="authenticity_token"
-    value="<%= form_authenticity_token %>">
-    Entres ton prénom : 
-    <input type="text" name="first_name">
-    Entres ton nom de famille :
-    <input type="text" name="last_name">
-    <input type="submit" name="Envoyer">
-</form>
 
 <div class="jumbotron-hero">
 
-            <div class="container d-grid gap-2 justify-content-md-center py-5 text-dark">
-                <h1>Bienvenue <%= "#{@user.first_name} #{@user.last_name}" %>!</h1></br>
-                <h1>Tu trouvera ici tout les derniers potins ! </h1><br/><br/>
-            </div>
+<div class="container d-flex flex-column justify-content-center align-items-center py-5 text-dark">
+<h1>Bienvenue <%= "#{@user.first_name} #{@user.last_name}" %>!</h1>
+<h1>Tu trouveras ici tout les derniers potins ! </h1>
+</div>
+
 
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-center py-5">
-                <button class="btn btn-primary" type="button">Je créer un Gossip</button>
-                <button class="btn btn-secondary text-light" type="button">Je découvre le programme</button>
-            </div>
-        </div>
+    <button class="btn btn-primary mb-3" type="button">Je créer un Gossip</button>
+    <button class="btn btn-secondary text-light mb-3 mx-md-3" type="button">Je découvre le programme</button>
+</div>
+
 
 
 
