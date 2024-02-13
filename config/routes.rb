@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
-  get 'welcome/index'
+  get 'users/index'
+  root "welcome#index"
+  get 'welcome/index', to: 'welcome#index'
   post '/', to: 'welcome#index_post'
-
   get 'contact/index'
   get 'team/index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  resources :gossips, only: [:index, :show] # Définition des routes pour gossips
+
+  resources :users, only: [:show] # Routes RESTful pour les utilisateurs
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

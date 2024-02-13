@@ -27,11 +27,44 @@
     value="<%= form_authenticity_token %>">
     Entres ton prénom : 
     <input type="text" name="first_name">
+    Entres ton nom de famille :
+    <input type="text" name="last_name">
     <input type="submit" name="Envoyer">
 </form>
 
-<h1>Welcome <%= @user.first_name %> !</h1>
+<div class="jumbotron-hero">
+
+            <div class="container d-grid gap-2 justify-content-md-center py-5 text-dark">
+                <h1>Bienvenue <%= "#{@user.first_name} #{@user.last_name}" %>!</h1></br>
+                <h1>Tu trouvera ici tout les derniers potins ! </h1><br/><br/>
+            </div>
 
 
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center py-5">
+                <button class="btn btn-primary" type="button">Je créer un Gossip</button>
+                <button class="btn btn-secondary text-light" type="button">Je découvre le programme</button>
+            </div>
+        </div>
+
+
+
+
+
+
+<div class="row">
+  <% @gossips.each do |gossip| %>
+    <div class="col-md-4">
+      <div class="card mb-3">
+
+        <div class="card-body">
+          <h5 class="card-title"><%= gossip.title %></h5>
+          <p class="card-text">Par : <%= gossip.user.first_name %></p>
+          <p class="card-text"><%= gossip.content %></p>
+          <%= link_to "Voir plus", gossip_path(gossip), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 
